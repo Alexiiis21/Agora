@@ -39,7 +39,7 @@ async function Page({ params }: { params: { id: string }}) {
                                 className="object-contain"
                                 />
                                 <p className="max-sm:hidden">{tab.label}</p>
-                                {tab.label === 'Threads' && (
+                                {tab.label === 'Publicaciones' && (
                                     <p className="ml-1 rounded-sm bg-light-4 px-2 py-1 !text-tiny-medium text-light-2">
                                         {userInfo?.threads.length}
                                     </p>
