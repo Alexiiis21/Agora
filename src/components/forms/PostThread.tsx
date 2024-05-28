@@ -21,6 +21,7 @@ import { ThreadValidation } from "@/lib/validations/thread";
 import { Button } from "../ui/button";
 import { createThread } from "@/lib/actions/thread.actions";
 import { z } from "zod";
+import { useOrganization } from "@clerk/nextjs";
 
 interface Props {
   user: {
@@ -35,7 +36,7 @@ interface Props {
 }
 
 function PostThread({userId}: {userId: string}) {
-
+    const { organization } = useOrganization();
     const router = useRouter();
     const pathname = usePathname();
   
@@ -47,11 +48,11 @@ function PostThread({userId}: {userId: string}) {
       },
     });
 
-    const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {
-        await createThread({
+    const onSubmit = async (values: z.infer<typeof ThreadValidation>) => {  
+      await createThread({
           text: values.thread,
           author: userId,
-          comumnityId: null,
+          communityId: organization ? organization.id : null,
           path: pathname
         });
         router.push('/');
