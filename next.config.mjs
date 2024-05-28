@@ -1,16 +1,6 @@
-/**
- * @type {import('next').NextConfig}
- */
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   experimental: {
-    serverActions: true,
     serverComponentsExternalPackages: ["mongoose"],
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
   },
   images: {
     remotePatterns: [
