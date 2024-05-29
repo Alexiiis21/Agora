@@ -1,6 +1,9 @@
 
-import { generateReactHelpers } from "@uploadthing/react/hooks";
+import { createNextRouteHandler } from "uploadthing/next";
 
-import type { OurFileRouter } from "@/app/api/uploadthing/core";
+import { ourFileRouter } from "./core";
 
-export const { useUploadThing, uploadFiles } = generateReactHelpers<OurFileRouter>();
+// Export routes for Next App Router
+export const { GET, POST } = createNextRouteHandler({
+  router: ourFileRouter,
+});
