@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { formatDateString } from "@/lib/utils";
 
+
 interface Props {
   id: string;
   currentUserId: string;
@@ -44,7 +45,7 @@ function ThreadCard({
         isComment ? "px-0 xs:px-7" : "bg-dark-2 p-7"
       }`}
     >
-    <div className='flex items-start justify-between'></div>
+      <div className='flex items-start justify-between'>
         <div className='flex w-full flex-1 flex-row gap-4'>
           <div className='flex flex-col items-center'>
             <Link href={`/profile/${author.id}`} className='relative h-11 w-11'>
@@ -105,7 +106,7 @@ function ThreadCard({
               {isComment && comments.length > 0 && (
                 <Link href={`/thread/${id}`}>
                   <p className='mt-1 text-subtle-medium text-gray-1'>
-                    {comments.length} repl{comments.length > 1 ? "ies" : "y"}
+                    {comments.length} respuesta{comments.length > 1 ? "s" : ""}
                   </p>
                 </Link>
               )}
@@ -113,14 +114,38 @@ function ThreadCard({
           </div>
         </div>
 
+
+      </div>
+
+      {!isComment && comments.length > 0 && (
+        <div className='ml-1 mt-3 flex items-center gap-2'>
+          {comments.slice(0, 2).map((comment, index) => (
+            <Image
+              key={index}
+              src={comment.author.image}
+              alt={`user_${index}`}
+              width={24}
+              height={24}
+              className={`${index !== 0 && "-ml-5"} rounded-full object-cover`}
+            />
+          ))}
+
+          <Link href={`/thread/${id}`}>
+            <p className='mt-1 text-subtle-medium text-gray-1'>
+              {comments.length} respuesta{comments.length > 1 ? "s" : ""}
+            </p>
+          </Link>
+        </div>
+      )}
+
       {!isComment && community && (
         <Link
-          href={`/communities/${community.id}`}
+          href={`/comunidades/${community.id}`}
           className='mt-5 flex items-center'
         >
           <p className='text-subtle-medium text-gray-1'>
             {formatDateString(createdAt)}
-            {community && ` - ${community.name} Community`}
+            {community.name} Comunidad
           </p>
 
           <Image

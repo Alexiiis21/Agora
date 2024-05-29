@@ -93,7 +93,7 @@ export const POST = async (request: Request) => {
       console.log("Invitation created", evnt?.data);
 
       return NextResponse.json(
-        { message: "Invitation created" },
+        { message: "Invitación enviada" },
         { status: 201 }
       );
     } catch (err) {
@@ -118,7 +118,7 @@ export const POST = async (request: Request) => {
       await addMemberToCommunity(organization.id, public_user_data.user_id);
 
       return NextResponse.json(
-        { message: "Invitation accepted" },
+        { message: "Invitation aceptada" },
         { status: 201 }
       );
     } catch (err) {
@@ -142,7 +142,7 @@ export const POST = async (request: Request) => {
       // @ts-ignore
       await removeUserFromCommunity(public_user_data.user_id, organization.id);
 
-      return NextResponse.json({ message: "Member removed" }, { status: 201 });
+      return NextResponse.json({ message: "Miembro eliminado" }, { status: 201 });
     } catch (err) {
       console.log(err);
 
@@ -164,7 +164,7 @@ export const POST = async (request: Request) => {
       // @ts-ignore
       await updateCommunityInfo(id, name, slug, logo_url);
 
-      return NextResponse.json({ message: "Member removed" }, { status: 201 });
+      return NextResponse.json({ message: "Miembro eliminado" }, { status: 201 });
     } catch (err) {
       console.log(err);
 
@@ -187,7 +187,7 @@ export const POST = async (request: Request) => {
       await deleteCommunity(id);
 
       return NextResponse.json(
-        { message: "Organization deleted" },
+        { message: "Comunidad eliminada" },
         { status: 201 }
       );
     } catch (err) {

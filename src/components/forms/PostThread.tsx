@@ -1,19 +1,13 @@
 "use client";
-
-import { UserValidation } from "@/lib/validations/user";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import Image from "next/image";
-import { ChangeEvent, useState } from "react";
 import { Textarea } from "../ui/textarea";
-import { useUploadThing } from '@/lib/uploadthing';
 import { usePathname, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -36,9 +30,9 @@ interface Props {
 }
 
 function PostThread({userId}: {userId: string}) {
-    const { organization } = useOrganization();
     const router = useRouter();
     const pathname = usePathname();
+    const { organization } = useOrganization();
   
     const form = useForm({
       resolver: zodResolver(ThreadValidation),

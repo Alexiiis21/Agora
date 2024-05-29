@@ -18,7 +18,7 @@ export async function fetchUser(userId: string) {
       model: Community,
     });
   } catch (error: any) {
-    throw new Error(`Failed to fetch user: ${error.message}`);
+    throw new Error(`Error al buscar al usuario: ${error.message}`);
   }
 }
 
@@ -58,7 +58,7 @@ export async function updateUser({
       revalidatePath(path);
     }
   } catch (error: any) {
-    throw new Error(`Failed to create/update user: ${error.message}`);
+    throw new Error(`Error al crear/actualizar al usuario: ${error.message}`);
   }
 }
 
@@ -89,7 +89,7 @@ export async function fetchUserPosts(userId: string) {
     });
     return threads;
   } catch (error) {
-    console.error("Error fetching user threads:", error);
+    console.error("Error al buscar publicaciones:", error);
     throw error;
   }
 }
@@ -148,7 +148,7 @@ export async function fetchUsers({
 
     return { users, isNext };
   } catch (error) {
-    console.error("Error fetching users:", error);
+    console.error("Error al buscar usuarios:", error);
     throw error;
   }
 }
@@ -177,7 +177,7 @@ export async function getActivity(userId: string) {
 
     return replies;
   } catch (error) {
-    console.error("Error fetching replies: ", error);
+    console.error("Error al buscar respuestas: ", error);
     throw error;
   }
 }
