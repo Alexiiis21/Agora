@@ -145,7 +145,7 @@ function ThreadCard({
         >
           <p className='text-subtle-medium text-gray-1'>
             {formatDateString(createdAt)} - 
-            {""} {community.name} Comunidad
+            {""} {community.name} 
           </p>
 
           <Image
