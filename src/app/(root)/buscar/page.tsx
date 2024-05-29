@@ -2,13 +2,7 @@
 
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation"
-import PostThread from "@/components/forms/PostThread";
 import { fetchUser, fetchUsers } from "@/lib/actions/user.actions";
-import ProfileHeader from "@/components/shared/ProfileHeader";
-import { profile } from "console";
-import Image from "next/image";
-import { profileTabs } from "@/constans";
-import ThreadsTab from "@/components/shared/ThreadsTabs";
 import UserCard from "@/components/cards/UserCard";
 
 async function Page() {

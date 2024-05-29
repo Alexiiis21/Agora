@@ -144,8 +144,8 @@ function ThreadCard({
           className='mt-5 flex items-center'
         >
           <p className='text-subtle-medium text-gray-1'>
-            {formatDateString(createdAt)}
-            {community.name} Comunidad
+            {formatDateString(createdAt)} - 
+            {""} {community.name} Comunidad
           </p>
 
           <Image
